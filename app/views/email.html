@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Email
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        What is your email address?
+      </h1>
+
+      <form class="form" action="/summary" method="post">
+
+      <p>The email address you provide should be your personal one. If, for example, you provide a shared email address, others may be able to view the result of your check.</p>
+
+      {{ govukInput({
+        id: "email",
+        name: "email",
+        value: emailValue,
+        classes: "govuk-!-width-two-thirds"
+      }) }}
+
+      <div class="govuk-inset-text">
+        An email will be sent to:<br/>
+        <span class="input-confirmation">{{ emailAddress }}</span>
+      </div>
+
+      <p>We’ll use your email address to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>send you general information about your application</li>
+        <li>send you links to track, view and share your result online</li>
+
+        {% if whoPays === 'SomeoneElse' %}
+        <li>send you an email that you can forward on to someone else if they are paying</li>
+        {% endif %}
+      </ul>
+
+      {{ govukInsetText({
+        text: "You will not be able to view your result online if your check reveals a criminal record."
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

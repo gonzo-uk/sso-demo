@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Validating your identity
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Validating your identity
+      </h1>
+      <p>Before getting a criminal record check you need to validate your identity.</p>
+
+      <p>You can do this online using your GOV.UK account.</p>
+
+      <p>On the next page you will be redirected to create your account. Upon completion you will rejoin our service.</p>
+
+      <form class="form" action="/auth/redirect" method="post">
+
+      {{ govukCheckboxes({
+        idPrefix: "policy",
+        name: "policy",
+        classes: "govuk-checkboxes--small",
+        items: [
+          {
+            value: "privacy",
+            html: 'I have read and understood the basic DBS check online application <a class="govuk-link" href="#">privacy policy</a> (opens in new tab), which examplains how the DBS will process my personal data from my GOV.UK account, before my application has been submitted.'
+          },
+          {
+            value: "data",
+            text: "I agree to the Basic DBS Check Service using my name, date of birth and address provided in my GOV.UK account"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

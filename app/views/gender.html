@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Gender
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        What is your sex?
+      </h1>
+
+      <p>We need to know your sex so that we can check police records.</p>
+
+      {{ govukDetails({
+        summaryText: "Help with nationality",
+        html: "Your sex will be printed on your paper certificate. However, it will not be displayed on your online result.<br><br>" + 
+        "If you’re transgender or non-binary and are concerned about completing this application, you can read our <a href='https://www.gov.uk/guidance/transgender-applications' rel='nofollow'>guidance on transgender applications.</a> " + 
+        "You can contact the DBS sensitive applications team if you do not want to reveal details of your previous identity on your paper certificate."
+      }) }}
+
+      <form class="form" action="/gender" method="post">
+      
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "gender",
+        name: "gender",
+        fieldset: {
+        },
+        items: [
+          {
+            value: "female",
+            text: "Female"
+          },
+          {
+            value: "male",
+            text: "Male"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

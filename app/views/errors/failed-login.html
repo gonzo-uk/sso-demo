@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Failed to validate your identity
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Failed to validate your identity
+      </h1>
+      <p>The page you're trying to access is protected and can only be accessed if your identity is validated.</p>
+
+      <p>If you have done that before, it could be that your session has expired.</p>
+
+      <form class="form" action="/auth/redirect" method="post">
+
+      {{ govukButton({
+        href: "/validating",
+        text: "Start again"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

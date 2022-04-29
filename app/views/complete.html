@@ -1,0 +1,35 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Application complete
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Application complete"
+      }) }}
+
+      <h2 class="govuk-heading-l">
+        What happens next
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>we will send you an email to tell you when your payment is complete</li>
+        <li>we will send you another email with your application reference number (always check your spam or junk folders if you haven't received an email)</li>
+        <li>the Disclosure and Barring Service (DBS) will process your application - this can take around 5 working days but can sometimes take longer.</li>
+        <li>you'll be able to track your application by following a link we'll email to you</li>
+        <li>we'll send you further emails to tell you when your certificate has been issued and the result of your check, if you've asked us to send this by email</li>
+        <li>your certificate will then be sent to you by post</li>
+      </ul>
+
+      <p><a id="feedback-link" target="_blank" href="#">What did you think of this service?</a> (takes 30 seconds).</p>
+    </div>
+  </div>
+
+{% endblock %}
